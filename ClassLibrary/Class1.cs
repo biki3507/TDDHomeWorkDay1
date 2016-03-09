@@ -8,28 +8,45 @@ namespace ClassLibrary
 {
     public class Class1
     {
-        public List<int> GetSample1(int groupNum)
+        public Result GetSample1(int groupNum, Column colunb)
         {
-            List<int> data = new List<int>();
+            Result data = new Result();
 
             switch (groupNum)
             {
                 case 3:
-                    data.Add(6);
-                    data.Add(15);
-                    data.Add(24);
-                    data.Add(21);
+                    data.Column = (int)colunb;
+                    data.Data = new List<int>();
+                    data.Data.Add(6);
+                    data.Data.Add(15);
+                    data.Data.Add(24);
+                    data.Data.Add(21);
                     break;
                 case 4:
-                    data.Add(50);
-                    data.Add(66);
-                    data.Add(60);
+                    data.Column = (int)colunb;
+                    data.Data = new List<int>();
+                    data.Data.Add(50);
+                    data.Data.Add(66);
+                    data.Data.Add(60);
                     break;
             }
 
             return data;
         }
+       
+        public enum Column
+        {
+            Id=1,
+            Cost=2,
+            Revenue=3,
+            SellPrice=4
 
-
+        } ;
     }
+    public class Result
+    {
+        public int Column { get; set; }
+        public List<int> Data { get; set;  }
+    }
+    
 }
